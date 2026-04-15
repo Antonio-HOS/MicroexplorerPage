@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baixar Pastas GitHub - Portal RX</title>
+  <style>
+    :root {
+      --bg-1: #020b14;
+      --bg-2: #071a2b;
+      --card: #0c2238;
+      --line: #1e4a6f;
+      --text: #d9eeff;
+      --muted: #9dc0dd;
+      --glow: #5cc8ff;
+      --cta: #36b3ff;
+      --cta-hover: #79d2ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, #103657 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, #0f2f4c 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      padding: 28px 16px 40px;
+    }
+
+    .container {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      background: rgba(12, 34, 56, 0.55);
+      border-radius: 16px;
+      padding: 24px 18px;
+      box-shadow: 0 0 24px rgba(92, 200, 255, 0.18);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+      color: #ecf8ff;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(92, 200, 255, 0.5);
+      letter-spacing: 0.4px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .legend {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: #86b5d9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16, 45, 71, 0.6), rgba(10, 29, 48, 0.85));
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--glow);
+      box-shadow: 0 12px 26px rgba(92, 200, 255, 0.2);
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid #275879;
+      filter: grayscale(100%) brightness(145%) contrast(170%) saturate(95%);
+      transform: scaleY(-1);
+    }
+
+    .content {
+      padding: 14px;
+    }
+
+    .content h2 {
+      font-size: 1.06rem;
+      margin-bottom: 7px;
+      color: #e8f5ff;
+    }
+
+    .content p {
+      font-size: 0.9rem;
+      color: #a9c9e3;
+      margin-bottom: 12px;
+      min-height: 36px;
+    }
+
+    .download-link {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      text-decoration: none;
+      color: #002036;
+      background: linear-gradient(90deg, var(--cta), #7fd8ff);
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .download-link:hover {
+      background: linear-gradient(90deg, var(--cta-hover), #b6ebff);
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #7ba4c6;
+      font-size: 0.84rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Portal de Download - Microxplorer</h1>
+      <p>Dowload de experimentos e projetos desenvolvidos no Microxplorer.</p>
+      <div class="legend">UESC - Universidade Estadual de Santa Cruz.</div>
+    </section>
+
+    <section id="linksGrid" class="grid" aria-label="Lista de downloads"></section>
+
+    <footer>
+      Atualize os links no JavaScript para seus repositorios e pastas desejadas.
+    </footer>
+  </main>
+
+  <script>
+    const imagesBase = "file:///C:/Users/anton/OneDrive/%C3%81rea%20de%20Trabalho/IMAGES";
+
+    const downloads = [
+      {
+        titulo: "TC1 Caracol",
+        descricao: "Tomografia de caracol.",
+        imagem: `${imagesBase}/img1.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC1_Caracol_202509"
+      },
+      {
+        titulo: "TC2 Cachimbo Arquiometria",
+        descricao: "Arquiometria de cachimbo.",
+        imagem: `${imagesBase}/img2.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC2_Cachimbo_Arquiometria_20251013"
+      },
+      {
+        titulo: "TC3 Sapinho",
+        descricao: "Tomografia de sapinho.",
+        imagem: `${imagesBase}/img3.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC3_Sapinho_20251028"
+      },
+      {
+        titulo: "TC4 Phone Ouvido",
+        descricao: "Tomografia de phone ouvido.",
+        imagem: `${imagesBase}/img4.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC4_DisciplinaTC_PhoneOuvido_20251216"
+      },
+      {
+        titulo: "TC5 Abobora",
+        descricao: "Tomografia de abobora.",
+        imagem: `${imagesBase}/img5.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC5_DisciplinaTC_Abobora_20251216"
+      },
+      {
+        titulo: "TC6 Concreto Isopor",
+        descricao: "Tomografia de concreto isopor.",
+        imagem: `${imagesBase}/img6.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC6_Concreto_Isopor"
+      },
+      {
+        titulo: "TC7 Concreto Isopor 2",
+        descricao: "Tomografia de concreto isopor 2.",
+        imagem: `${imagesBase}/img7.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC7_Concreto_Isopor_2"
+      },
+      {
+        titulo: "TC8 FlatMassivo",
+        descricao: "Tomografia de flatmassivo.",
+        imagem: `${imagesBase}/img8.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC8_FlatMassivo"
+      },
+      {
+        titulo: "TC9 Concreto Isopor 3",
+        descricao: "Tomografia de concreto isopor 3.",
+        imagem: `${imagesBase}/img9.png`,
+        link: "https://downgit.github.io/#/home?url=https://github.com/dsdominguez/microxplorer/tree/main/TC9_Concreto_Isopor_3"
+      }
+    ];
+
+    const grid = document.getElementById("linksGrid");
+
+    downloads.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "card";
+
+      card.innerHTML = `
+        <img class="thumb" src="${item.imagem}" alt="${item.titulo}" loading="lazy" />
+        <div class="content">
+          <h2>${item.titulo}</h2>
+          <p>${item.descricao}</p>
+          <a class="download-link" href="${item.link}" target="_blank" rel="noopener noreferrer">
+            Baixar pasta no DownGit
+          </a>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
